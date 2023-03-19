@@ -9,8 +9,8 @@ export default {
                     routeName: "home",
                 },
                 {
-                    label: "Chi Siamo",
-                    routeName: "chi-siamo",
+                    label: "Servizi",
+                    routeName: "servizi",
                 },
             ]
         }
@@ -52,6 +52,9 @@ export default {
     .links {
 
         .link-list {
+
+            list-style-type: none;
+
             li {
                 font-size: 1.3em;
                 padding: .5em;

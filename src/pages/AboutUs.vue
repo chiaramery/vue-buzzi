@@ -1,43 +1,134 @@
 <script>
 export default {
-    name: 'HomePage'
+    name: 'AboutUs',
+    data() {
+        return {
+            activeSlide: 0,
+            autoplay: null,
+            slides: [
+                {
+                    image: "src/img/7.JPG",
+                },
+                {
+                    image: "src/img/25.JPG",
+                },
+                {
+                    image: "src/img/2.JPG",
+                },
+            ],
+        }
+    },
+    created() {
+        this.startAutoplay();
+    },
+    methods: {
+        showNext() {
+            if (this.activeSlide < this.slides.length - 1) {
+                this.activeSlide++;
+            } else {
+                this.activeSlide = 0;
+            }
+        },
+        showPrev() {
+            if (this.activeSlide > 0) {
+                this.activeSlide--;
+            } else {
+                this.activeSlide = this.slides.length - 1;
+            }
+        },
+        showItem(itemIndex) {
+            this.activeSlide = itemIndex;
+        },
+        stopAutoplay() {
+            console.log("stop");
+            clearInterval(this.autoplay);
+            this.autoplay = null;
+        },
+        startAutoplay() {
+            if (this.autoplay === null) {
+                this.autoplay = setInterval(() => {
+                    console.log("interval");
+                    this.showNext();
+                }, 5000);
+            }
+        },
+    },
 }
 </script>
 
 <template>
-    <div class="row pt-5">
-        <div class="text col-6">
-            <p>
-                L'azienda Buzzi s.n.c. ha sede ad Ardea in provincia di Roma e da anni con professionalità e serietà si
-                occupa
-                di
-                trivellazioni, realizzazioni di pozzi artesiani e perforazioni. L'azienda che si avvale della collaborazione
-                di
-                un
-                team esperto e qualificato, garantisce massima serietà e professionalità nella realizzazioni delle proprie
-                opere.
-            </p>
-        </div>
-        <div class="img col-6">
-            <img src="../img/1.JPG" alt="">
+    <div id="servizi">
+        <div class="row justify-content-around">
+            <div class="col-4">
+                <div class="text-servizi">
+                    <h3 class="text-center pt-3">I nostri servizi:</h3>
+                    <div class="list">
+                        <ul>
+                            <li>perforazione e trivellazione pozzi artesiani</li>
+                            <li>ripristino pozzi già esistenti</li>
+                            <li>smontaggio e rimontaggio pompe sommerse</li>
+                            <li>pulizia pozzi artesiani con motocompressore</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="slider-wrapper" tabindex="0" @focus="stopAutoplay" @blur="startAutoplay" @keyup.up="showPrev"
+                    @keyup.down="showNext">
+                    <div class="item">
+                        <img :src="slides[activeSlide].image" :alt="slides[activeSlide].title" />
+                        <div class="text">
+                            <h5 class="text-center">{{ slides[activeSlide].title }}</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </template>
 
 <style lang="scss">
-.row {
-    display: flex;
-    justify-content: space-around;
+#servizi {
+    position: relative;
+    width: 100%;
 
-    .text {
-        p {
-            font-size: 2em;
+    .back {
+        width: 100%;
+        height: 100vh;
+
+        .text-b {
+            width: 45%;
+            margin: 1em auto;
+            background-color: rgb(11 113 184);
         }
     }
 
-    .img {
-        img {
-            width: 400px;
+    .col-4 {
+        .text-servizi {
+            margin-top: 3em;
+            background-color: rgb(11 113 184);
+            color: white;
+
+            h3 {
+                font-size: 2em;
+            }
+
+            .list {
+                padding-left: 8em;
+
+                li {
+                    padding-top: .5em;
+                    padding-bottom: .5em;
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+
+    .col-4 {
+        .slider-wrapper {
+            padding-top: .5em;
         }
     }
 }
