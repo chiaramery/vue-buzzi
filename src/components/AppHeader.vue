@@ -12,6 +12,10 @@ export default {
                     label: "Servizi",
                     routeName: "servizi",
                 },
+                {
+                    label: "Social",
+                    routeName: "social",
+                }
             ]
         }
     }
