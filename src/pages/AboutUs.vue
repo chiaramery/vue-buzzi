@@ -61,13 +61,16 @@ export default {
         <div class="row justify-content-around">
             <div class="col-4">
                 <div class="text-servizi">
-                    <h3 class="text-center pt-3">I nostri servizi:</h3>
+                    <h3 class="text-center pt-1">I nostri servizi:</h3>
                     <div class="list">
                         <ul>
                             <li>perforazione e trivellazione pozzi artesiani</li>
                             <li>ripristino pozzi già esistenti</li>
-                            <li>smontaggio e rimontaggio pompe sommerse</li>
-                            <li>pulizia pozzi artesiani con motocompressore</li>
+                            <li>installazione e manutenzione pompe sommerse</li>
+                            <li>installazione e manutenzione autoclavi</li>
+                            <li>punte abbissine</li>
+                            <li>scavi per piccoli spazi</li>
+                            <li>movimento terra</li>
                         </ul>
                     </div>
                 </div>
@@ -106,7 +109,7 @@ export default {
 
     .col-4 {
         .text-servizi {
-            margin-top: 3em;
+            margin-top: 2em;
             background-color: rgb(11 113 184);
             color: white;
 

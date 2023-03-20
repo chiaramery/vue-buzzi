@@ -14,7 +14,7 @@ export default {
 
         <h1>Scrivici su Whatsapp per maggiori informazioni</h1>
 
-        <a href="https://api.whatsapp.com/send?phone=393474795593">
+        <a href="https://api.whatsapp.com/send?phone=3896643102">
             <i class="fa-brands fa-square-whatsapp"></i>
         </a>
     </div>
